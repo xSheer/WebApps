@@ -1,4 +1,4 @@
-import artikel from './Artikel';
+import artikel from './Artikel.js';
 
 let ModulVerwaltung = (function(){
     return {
@@ -7,3 +7,6 @@ let ModulVerwaltung = (function(){
         Verwaltung: Verwaltung       
     }
 })();
+
+//let test = new artikel('sdfsdf', 'sdfsfd', 23);
+console.log("test");

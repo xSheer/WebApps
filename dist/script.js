@@ -68,7 +68,7 @@ function Artikel(artikelName, artikelBeschreibung, artikelPreis, artikelSonderPr
     };
 }
 
-export {Artikel};
+export default {Artikel};
 function Schuhe(artikelName, artikelBeschreibung, artikelPreis, artikelSonderPreis, schuhGroesse, schuhMarke){
     Artikel.call(this, artikelName, artikelBeschreibung, artikelPreis, artikelSonderPreis);
     let _schuhGroesse = schuhGroesse;
@@ -133,7 +133,7 @@ function Verwaltung(){
         }
     };
 }
-import artikel from './Artikel';
+import artikel from './Artikel.js';
 
 let ModulVerwaltung = (function(){
     return {
@@ -142,43 +142,46 @@ let ModulVerwaltung = (function(){
         Verwaltung: Verwaltung       
     }
 })();
+
+//let test = new artikel('sdfsdf', 'sdfsfd', 23);
+console.log("test");
 //Test Klasse
 
-//Create Artikel
-let artikel1 = new Artikel('Jeans', 'Asos Jeans', 139);
-let artikel2 = new Artikel('Pulli', 'Asos Pulli', 49, 39);
-console.log(artikel1);
+// //Create Artikel
+// let artikel1 = new Artikel('Jeans', 'Asos Jeans', 139);
+// let artikel2 = new Artikel('Pulli', 'Asos Pulli', 49, 39);
+// console.log(artikel1);
 
-//Create Schuh
-let schuh1 = new Schuhe('Schuh', 'New Nikes', 119, 79, 42, 'Nike');
-let schuh2 = new Schuhe('Schuh', 'New Adidias', 79, undefined, 42, 'Adidias');
-console.log(schuh1);
-console.log(schuh1.artikelID);
+// //Create Schuh
+// let schuh1 = new Schuhe('Schuh', 'New Nikes', 119, 79, 42, 'Nike');
+// let schuh2 = new Schuhe('Schuh', 'New Adidias', 79, undefined, 42, 'Adidias');
+// console.log(schuh1);
+// console.log(schuh1.artikelID);
 
-//Create Verwaltung
-let verwaltung = new Verwaltung();
-//List should be empty
-console.log(verwaltung.listArticles());
-//Add Schuh
-verwaltung.addArtikelsToList(schuh1);
-console.log(verwaltung.listArticles());
+// //Create Verwaltung
+// let verwaltung = new Verwaltung();
+// //List should be empty
+// console.log(verwaltung.listArticles());
+// //Add Schuh
+// verwaltung.addArtikelsToList(schuh1);
+// console.log(verwaltung.listArticles());
 
-//Add mutiple artikels at once
-verwaltung.addArtikelsToList(schuh2, artikel1, artikel2);
-console.log(verwaltung.listArticles());
+// //Add mutiple artikels at once
+// verwaltung.addArtikelsToList(schuh2, artikel1, artikel2);
+// console.log(verwaltung.listArticles());
 
-//Delete just one artikel
-verwaltung.deleteArtikelsToList(schuh1);
-console.log(verwaltung.listArticles());
+// //Delete just one artikel
+// verwaltung.deleteArtikelsToList(schuh1);
+// console.log(verwaltung.listArticles());
 
-//Delete mutiple artikels at once
-verwaltung.deleteArtikelsToList(artikel1, artikel2);
-console.log(verwaltung.listArticles());
+// //Delete mutiple artikels at once
+// verwaltung.deleteArtikelsToList(artikel1, artikel2);
+// console.log(verwaltung.listArticles());
 
-let test = 10;
-console.log(test);
+// let test = 10;
+// console.log(test);
 
-//Babel Testing
-let es2016 = () => {
-    return "Hallo World";
-}
+// //Babel Testing
+// let es2016 = () => {
+//     return "Hallo World";
+// }

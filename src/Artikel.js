@@ -68,4 +68,4 @@ function Artikel(artikelName, artikelBeschreibung, artikelPreis, artikelSonderPr
     };
 }
 
-export {Artikel};
+export default {Artikel};

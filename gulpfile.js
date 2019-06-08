@@ -4,6 +4,7 @@ var browserSync = require('browser-sync').create();
 var concat = require('gulp-concat'); 
 var uglify = require('gulp-uglify-es').default;
 var rename = require('gulp-rename'); 
+var babel = require('gulp-babel');
 
 gulp.task('scripts', function() { 
     return gulp.src('src/*.js')
@@ -13,6 +14,16 @@ gulp.task('scripts', function() {
         .pipe(uglify()) 
         .pipe(gulp.dest('dist'))
         .pipe(browserSync.stream());
+});
+
+gulp.task('babel', function() {
+    return gulp.src(
+      [
+      'node_modules/babel-polyfill/dist/polyfill.js',
+      'src/*.js'
+      ])
+      .pipe(babel())
+      .pipe(gulp.dest('compiled'))
 });
 
 gulp.task('watch', function(){

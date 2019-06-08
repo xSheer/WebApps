@@ -166,3 +166,8 @@ console.log(verwaltung.listArticles());
 
 let test = 10;
 console.log(test);
+
+//Babel Testing
+let es2016 = () => {
+    return "Hallo World";
+}

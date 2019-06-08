@@ -4,7 +4,6 @@ var browserSync = require('browser-sync').create();
 var concat = require('gulp-concat'); 
 var uglify = require('gulp-uglify-es').default;
 var rename = require('gulp-rename'); 
-var yuidoc = require('gulp-yuidoc');
 
 gulp.task('scripts', function() { 
     return gulp.src('src/*.js')

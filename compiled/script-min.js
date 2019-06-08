@@ -5,7 +5,7 @@ function Artikel(e, t, i, r) {
       n = e;
   this.artikelBeschreibung = t;
   var s = i,
-      o = r;
+      u = r;
   this.implementsInterfaces = ["Compareable"], 0 == arguments.length ? this._artikelName = l : this._artikelName = e, Object.defineProperty(this, "artikelID", {
     get: function get() {
       return l;
@@ -19,7 +19,7 @@ function Artikel(e, t, i, r) {
     }
   }), Object.defineProperty(this, "artikelPreis", {
     get: function get() {
-      return null != o ? o : s;
+      return null != u ? u : s;
     },
     set: function set(e) {
       if (e >= 0) return s = e;
@@ -27,10 +27,10 @@ function Artikel(e, t, i, r) {
     configurable: !0
   }), Object.defineProperty(this, "artikelSonderPreis", {
     get: function get() {
-      return o;
+      return u;
     },
     set: function set(e) {
-      if (e >= 0 || null == e) return o = e;
+      if (e >= 0 || null == e) return u = e;
     }
   }), this.isCheaperThan = function (e) {
     return this.artikelPreis <= e.artikelPreis;
@@ -42,8 +42,8 @@ function Artikel(e, t, i, r) {
 function Schuhe(e, t, i, r, l, n) {
   Artikel.call(this, e, t, i, r);
   var s = l,
-      o = n,
-      u = i,
+      u = n,
+      o = i,
       c = r;
   Object.defineProperty(this, "schuhGroesse", {
     get: function get() {
@@ -51,17 +51,17 @@ function Schuhe(e, t, i, r, l, n) {
     }
   }), Object.defineProperty(this, "schuhMarke", {
     get: function get() {
-      return o;
+      return u;
     },
     set: function set(e) {
-      return o = e;
+      return u = e;
     }
   }), Object.defineProperty(this, "artikelPreis", {
     get: function get() {
-      return null != c ? c : u;
+      return null != c ? c : o;
     },
     set: function set(e) {
-      if (e >= 5) return u = e;
+      if (e >= 5) return o = e;
     }
   });
 }
@@ -95,7 +95,12 @@ function Verwaltung() {
   };
 }
 
-var artikel1 = new Artikel("Jeans", "Asos Jeans", 139),
+var ModulVerwaltung = {
+  Artikel: Artikel,
+  Schuhe: Schuhe,
+  Verwaltung: Verwaltung
+},
+    artikel1 = new Artikel("Jeans", "Asos Jeans", 139),
     artikel2 = new Artikel("Pulli", "Asos Pulli", 49, 39);
 console.log(artikel1);
 var schuh1 = new Schuhe("Schuh", "New Nikes", 119, 79, 42, "Nike"),

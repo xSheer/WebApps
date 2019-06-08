@@ -67,6 +67,8 @@ function Artikel(artikelName, artikelBeschreibung, artikelPreis, artikelSonderPr
         return this.artikelID;
     };
 }
+
+export {Artikel};
 function Schuhe(artikelName, artikelBeschreibung, artikelPreis, artikelSonderPreis, schuhGroesse, schuhMarke){
     Artikel.call(this, artikelName, artikelBeschreibung, artikelPreis, artikelSonderPreis);
     let _schuhGroesse = schuhGroesse;
@@ -131,6 +133,15 @@ function Verwaltung(){
         }
     };
 }
+import artikel from './Artikel';
+
+let ModulVerwaltung = (function(){
+    return {
+        Artikel: artikel, //=require Artikel.js,
+        Schuhe: Schuhe,
+        Verwaltung: Verwaltung       
+    }
+})();
 //Test Klasse
 
 //Create Artikel

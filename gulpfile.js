@@ -47,6 +47,6 @@ gulp.task('serve', gulp.series(['scripts'], function(){
     gulp.watch('src/*.js', gulp.series(['lint']));
 }));
 
-gulp.task('default', gulp.series(['lint', 'babel', 'serve'], function() { 
+gulp.task('default', gulp.series(['lint', 'serve', 'babel'], function() { 
     console.log("Gulp hsd!");
 }));

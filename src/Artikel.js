@@ -67,3 +67,5 @@ function Artikel(artikelName, artikelBeschreibung, artikelPreis, artikelSonderPr
         return this.artikelID;
     };
 }
+
+export {Artikel};

@@ -32,3 +32,5 @@ function Schuhe(artikelName, artikelBeschreibung, artikelPreis, artikelSonderPre
         }
     });
 }
+
+export {Schuhe};

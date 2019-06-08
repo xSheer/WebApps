@@ -1,5 +1,7 @@
+import Artikel from './Artikel.js';
+
 function Schuhe(artikelName, artikelBeschreibung, artikelPreis, artikelSonderPreis, schuhGroesse, schuhMarke){
-    Artikel.call(this, artikelName, artikelBeschreibung, artikelPreis, artikelSonderPreis);
+    Artikel.Artikel.call(this, artikelName, artikelBeschreibung, artikelPreis, artikelSonderPreis);
     let _schuhGroesse = schuhGroesse;
     let _schuhMarke = schuhMarke;
     let _artikelPreis = artikelPreis;
@@ -32,3 +34,5 @@ function Schuhe(artikelName, artikelBeschreibung, artikelPreis, artikelSonderPre
         }
     });
 }
+
+export default {Schuhe};

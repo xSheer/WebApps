@@ -28,3 +28,5 @@ function Verwaltung(){
         }
     };
 }
+
+export default {Verwaltung};

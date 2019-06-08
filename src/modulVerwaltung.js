@@ -1,12 +1,22 @@
-import artikel from './Artikel.js';
+import Artikel from './Artikel.js';
+import Schuhe from './Schuhe.js';
+import Verwaltung from './Verwaltung.js';
 
-let ModulVerwaltung = (function(){
-    return {
-        Artikel: artikel, //=require Artikel.js,
-        Schuhe: Schuhe,
-        Verwaltung: Verwaltung       
-    }
-})();
+let artikel1 = new Artikel.Artikel('Jeans', 'Asos Jeans', 139);
+console.log(artikel1);
 
-let test = new artikel.Artikel();
-console.log(test);
+let artikel2 = new Artikel.Artikel('Pulli', 'Asos Pulli', 49, 39);
+console.log(artikel2);
+
+let artikel3 = new Schuhe.Schuhe('Schuhe', 'Nike Schuhe', 129);
+console.log(artikel3);
+
+let artikel4 = new Schuhe.Schuhe('Schuhe', 'Adidas Schuhe', 79);
+console.log(artikel4);
+
+let verwaltung = new Verwaltung.Verwaltung();
+verwaltung.addArtikelsToList(artikel1, artikel2, artikel3, artikel4);
+
+console.log(verwaltung.listArticles());
+verwaltung.deleteArtikelsToList(artikel1);
+console.log(verwaltung.listArticles());

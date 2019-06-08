@@ -20,7 +20,7 @@ gulp.task('babel', function() {
     return gulp.src(
       [
       'node_modules/babel-polyfill/dist/polyfill.js',
-      'src/*.js'
+      'dist/script-min.js'
       ])
       .pipe(babel())
       .pipe(gulp.dest('compiled'))
@@ -47,6 +47,6 @@ gulp.task('serve', gulp.series(['scripts'], function(){
     gulp.watch('src/*.js', gulp.series(['lint']));
 }));
 
-gulp.task('default', gulp.series(['lint', 'serve'], function() { 
+gulp.task('default', gulp.series(['lint', 'babel', 'serve'], function() { 
     console.log("Gulp hsd!");
 }));

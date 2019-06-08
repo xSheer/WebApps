@@ -1,4 +1,4 @@
-function Verwaltung(){
+export default function Verwaltung(){
     let artikels = []; //TODO static? 
 
     this.listArticles = function(){
@@ -28,5 +28,3 @@ function Verwaltung(){
         }
     };
 }
-
-export default {Verwaltung};

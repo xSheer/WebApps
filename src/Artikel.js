@@ -1,4 +1,4 @@
-function Artikel(artikelName, artikelBeschreibung, artikelPreis, artikelSonderPreis){
+export default function Artikel(artikelName, artikelBeschreibung, artikelPreis, artikelSonderPreis){
 
     //# bei der Verwendung von privaten Varibalen
     let _artikelID = Math.random() * (+10 - +1) + 1; 
@@ -67,5 +67,3 @@ function Artikel(artikelName, artikelBeschreibung, artikelPreis, artikelSonderPr
         return this.artikelID;
     };
 }
-
-export default {Artikel};

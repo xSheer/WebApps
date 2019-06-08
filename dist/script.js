@@ -1,4 +1,4 @@
-function Artikel(artikelName, artikelBeschreibung, artikelPreis, artikelSonderPreis){
+export default function Artikel(artikelName, artikelBeschreibung, artikelPreis, artikelSonderPreis){
 
     //# bei der Verwendung von privaten Varibalen
     let _artikelID = Math.random() * (+10 - +1) + 1; 
@@ -67,12 +67,10 @@ function Artikel(artikelName, artikelBeschreibung, artikelPreis, artikelSonderPr
         return this.artikelID;
     };
 }
-
-export default {Artikel};
 import Artikel from './Artikel.js';
 
-function Schuhe(artikelName, artikelBeschreibung, artikelPreis, artikelSonderPreis, schuhGroesse, schuhMarke){
-    Artikel.Artikel.call(this, artikelName, artikelBeschreibung, artikelPreis, artikelSonderPreis);
+export default function Schuhe(artikelName, artikelBeschreibung, artikelPreis, artikelSonderPreis, schuhGroesse, schuhMarke){
+    Artikel.call(this, artikelName, artikelBeschreibung, artikelPreis, artikelSonderPreis);
     let _schuhGroesse = schuhGroesse;
     let _schuhMarke = schuhMarke;
     let _artikelPreis = artikelPreis;
@@ -105,9 +103,7 @@ function Schuhe(artikelName, artikelBeschreibung, artikelPreis, artikelSonderPre
         }
     });
 }
-
-export default {Schuhe};
-function Verwaltung(){
+export default function Verwaltung(){
     let artikels = []; //TODO static? 
 
     this.listArticles = function(){
@@ -137,25 +133,23 @@ function Verwaltung(){
         }
     };
 }
-
-export default {Verwaltung};
 import Artikel from './Artikel.js';
 import Schuhe from './Schuhe.js';
 import Verwaltung from './Verwaltung.js';
 
-let artikel1 = new Artikel.Artikel('Jeans', 'Asos Jeans', 139);
+let artikel1 = new Artikel('Jeans', 'Asos Jeans', 139);
 console.log(artikel1);
 
-let artikel2 = new Artikel.Artikel('Pulli', 'Asos Pulli', 49, 39);
+let artikel2 = new Artikel('Pulli', 'Asos Pulli', 49, 39);
 console.log(artikel2);
 
-let artikel3 = new Schuhe.Schuhe('Schuhe', 'Nike Schuhe', 129);
+let artikel3 = new Schuhe('Schuhe', 'Nike Schuhe', 129);
 console.log(artikel3);
 
-let artikel4 = new Schuhe.Schuhe('Schuhe', 'Adidas Schuhe', 79);
+let artikel4 = new Schuhe('Schuhe', 'Adidas Schuhe', 79);
 console.log(artikel4);
 
-let verwaltung = new Verwaltung.Verwaltung();
+let verwaltung = new Verwaltung();
 verwaltung.addArtikelsToList(artikel1, artikel2, artikel3, artikel4);
 
 console.log(verwaltung.listArticles());

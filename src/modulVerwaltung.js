@@ -8,5 +8,5 @@ let ModulVerwaltung = (function(){
     }
 })();
 
-//let test = new artikel('sdfsdf', 'sdfsfd', 23);
-console.log("test");
+let test = new artikel.Artikel();
+console.log(test);

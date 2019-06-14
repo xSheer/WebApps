@@ -24,11 +24,11 @@ export default class Schuhe extends Artikel{
         return this._schuhMarke;
     }
 
-    set schuhMarke(schuhMarke){
+    set schuhMarke(schuhMarke:string){
         this._schuhMarke = schuhMarke;
     }
 
-    get artikelSonderPreis(){
+    get artikelSonderPreis():number{
         if(this._artikelSonderPreis != undefined)
             return this._artikelSonderPreis;
         return this._artikelPreis;

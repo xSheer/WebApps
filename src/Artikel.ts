@@ -20,11 +20,11 @@ export default class Artikel{
         }
     }
 
-    get artikelID(){
+    get artikelID():number{
         return this._artikelID;
     }
 
-    get artikelName(){
+    get artikelName():string{
         return this._artikelName;
     }
 
@@ -37,7 +37,7 @@ export default class Artikel{
     }
 
     //configurable: true as default for polyphormism
-    get artikelPreis(){
+    get artikelPreis():number{
         if(this._artikelSonderPreis != undefined)
             return this._artikelSonderPreis;
         return this._artikelPreis;
@@ -48,9 +48,10 @@ export default class Artikel{
             this._artikelPreis = artikelPreis;
     }
 
-    get artikelSonderPreis(){
+    get artikelSonderPreis():number{
         return this._artikelSonderPreis;
     } 
+    
     set artikelSonderPreis(artikelSonderPreis:number){
         if(artikelSonderPreis >= 0 || artikelSonderPreis == undefined)
             this._artikelSonderPreis = artikelSonderPreis;

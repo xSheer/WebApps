@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <script type="module" src="./src/Artikel.js"></script>
-        <script type="module" src="./src/Schuhe.js"></script>
-        <script type="module" src="./src/Verwaltung.js"></script>
-        <script src="./src/test.js"></script>
-        <script type="module" src="./src/modulVerwaltung.js"></script>
+        <script type="module" src="./compiled/script-min.js"></script>
+        <script type="systemjs-importmap" src="./built/local/output.js">
+            System.import("./built/local/output.js")
+                .then(function() {
+                    console.info("System.import was successful.");
+                })
+                .catch(function(response) {
+                    console.error("Error in System.import, could not bootstrap.", response);
+                });
+        </script>
     </head>
     <body>
         <p>Uebung09 - Web Apps!</p>

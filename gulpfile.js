@@ -5,6 +5,7 @@ var concat = require('gulp-concat');
 var uglify = require('gulp-uglify-es').default;
 var rename = require('gulp-rename'); 
 var babel = require('gulp-babel');
+var ts = require('gulp-typescript');
 
 gulp.task('scripts', function() { 
     return gulp.src('src/*.js')
@@ -47,6 +48,17 @@ gulp.task('serve', gulp.series(['scripts'], function(){
     gulp.watch('src/*.js', gulp.series(['lint']));
 }));
 
-gulp.task('default', gulp.series(['lint', 'serve', 'babel'], function() { 
-    console.log("Gulp hsd!");
+gulp.task('transpile', function(){
+    return gulp.src('src/**/*.ts')
+    .pipe(ts({ 
+        target: "es6",  //transpile into es5 to see the magic of babel
+        module: "amd", //necessary with import/export of classes
+        noImplicitAny: true,
+        out: 'output.js' 
+    }))
+    .pipe(gulp.dest('built/local'));
+})
+
+gulp.task('default', gulp.series(['transpile', 'lint', 'serve', 'babel'], function() { 
+    console.log("Gulp default is running!");
 }));

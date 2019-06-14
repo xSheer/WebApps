@@ -1,69 +1,70 @@
-export default function Artikel(artikelName, artikelBeschreibung, artikelPreis, artikelSonderPreis){
+export default class Artikel{
 
-    //# bei der Verwendung von privaten Varibalen
-    let _artikelID:number = Math.random() * (+10 - +1) + 1; 
-    let _artikelName:string = artikelName;
-    this.artikelBeschreibung = artikelBeschreibung;
-    let _artikelPreis:number = artikelPreis;
-    let _artikelSonderPreis:number = artikelSonderPreis;
-    this.implementsInterfaces = ['Compareable'];
+    private artikelBeschreibung:string;
+    private _artikelID:number;
+    private _artikelName:string;
+    protected _artikelPreis:number;
+    protected _artikelSonderPreis:number;
 
-    if(arguments.length == 0){
-        this._artikelName = _artikelID;
-    }else {
-        this._artikelName = artikelName;
+    constructor(artikelName:string, artikelBeschreibung:string, artikelPreis:number, artikelSonderPreis:number){
+        //# bei der Verwendung von privaten Varibalen
+        this._artikelID = Math.random() * (+10 - +1) + 1; 
+        this.artikelBeschreibung = artikelBeschreibung;
+        this._artikelPreis = artikelPreis;
+        this._artikelSonderPreis = artikelSonderPreis;
+        
+        if(!artikelName){
+            this._artikelName = String(this._artikelID);
+        } else {
+            this._artikelName = artikelName;
+        }
     }
 
-    Object.defineProperty(this, 'artikelID', {
-        get: function(){
-            return _artikelID;
+    get artikelID(){
+        return this._artikelID;
+    }
+
+    get artikelName(){
+        return this._artikelName;
+    }
+
+    set artikelName(artikelName:string){
+        if(artikelName != ''){
+            this._artikelName = artikelName;
+        }else {
+            this._artikelName = String(this._artikelID);
         }
-    });
+    }
 
-    Object.defineProperty(this, 'artikelName', {
-        get: function(){
-            return _artikelName;
-        },
-        set: function(artikelName){
-            if(artikelName != ''){
-                return _artikelName = artikelName;
-            }
-            return _artikelName = String(_artikelID);
-        }
-    });
+    //configurable: true as default for polyphormism
+    get artikelPreis(){
+        if(this._artikelSonderPreis != undefined)
+            return this._artikelSonderPreis;
+        return this._artikelPreis;
+    }
 
-    Object.defineProperty(this, 'artikelPreis', {
-        get: function(){
-            if(_artikelSonderPreis != undefined)
-                return _artikelSonderPreis;
-            return _artikelPreis;
-        },
-        set: function(artikelPreis){
-            if(artikelPreis >= 0)
-                return _artikelPreis = artikelPreis;
-        },
-        configurable: true
-    });
+    set artikelPreis(artikelPreis:number){
+        if(artikelPreis >= 0)
+            this._artikelPreis = artikelPreis;
+    }
 
-    Object.defineProperty(this, 'artikelSonderPreis', {
-        get: function(){
-            return _artikelSonderPreis;
-        },
-        set: function(artikelSonderPreis){
-            if(artikelSonderPreis >= 0 || artikelSonderPreis == undefined)
-                return _artikelSonderPreis = artikelSonderPreis;
-        }
-    });
-
-    //Public method
-    this.isCheaperThan = function(artikel):boolean{
-        if(this.artikelPreis <= artikel.artikelPreis){
+    get artikelSonderPreis(){
+        return this._artikelSonderPreis;
+    } 
+    set artikelSonderPreis(artikelSonderPreis:number){
+        if(artikelSonderPreis >= 0 || artikelSonderPreis == undefined)
+            this._artikelSonderPreis = artikelSonderPreis;
+    }
+    
+    //Public methods
+    protected isCheaperThan = function(artikel:Artikel):boolean{
+        if(this.artikelPreis <= artikel._artikelPreis){
             return true;
         }
         return false;
     };
 
-    this.getId = function():number{
+    protected getId = function():number{
         return this.artikelID;
     };
 }

@@ -5,6 +5,7 @@
   "main": "gulpfile.js",
   "dependencies": {
     "gulp-typescript": "^5.0.1",
+    "systemjs": "^3.1.6",
     "typescript": "^3.5.2"
   },
   "devDependencies": {

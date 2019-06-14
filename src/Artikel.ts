@@ -1,11 +1,11 @@
 export default function Artikel(artikelName, artikelBeschreibung, artikelPreis, artikelSonderPreis){
 
     //# bei der Verwendung von privaten Varibalen
-    let _artikelID = Math.random() * (+10 - +1) + 1; 
-    let _artikelName = artikelName;
+    let _artikelID:number = Math.random() * (+10 - +1) + 1; 
+    let _artikelName:string = artikelName;
     this.artikelBeschreibung = artikelBeschreibung;
-    let _artikelPreis = artikelPreis;
-    let _artikelSonderPreis = artikelSonderPreis;
+    let _artikelPreis:number = artikelPreis;
+    let _artikelSonderPreis:number = artikelSonderPreis;
     this.implementsInterfaces = ['Compareable'];
 
     if(arguments.length == 0){
@@ -28,7 +28,7 @@ export default function Artikel(artikelName, artikelBeschreibung, artikelPreis, 
             if(artikelName != ''){
                 return _artikelName = artikelName;
             }
-            return _artikelName = _artikelID;
+            return _artikelName = String(_artikelID);
         }
     });
 
@@ -56,14 +56,14 @@ export default function Artikel(artikelName, artikelBeschreibung, artikelPreis, 
     });
 
     //Public method
-    this.isCheaperThan = function(artikel){
+    this.isCheaperThan = function(artikel):boolean{
         if(this.artikelPreis <= artikel.artikelPreis){
             return true;
         }
         return false;
     };
 
-    this.getId = function(){
+    this.getId = function():number{
         return this.artikelID;
     };
 }

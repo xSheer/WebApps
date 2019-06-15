@@ -9,7 +9,6 @@ var tslint = require("gulp-tslint");
 
 gulp.task('scripts', function() { 
     return gulp.src('built/local/*.js')
-        //concat might be not necessary anymore
         .pipe(concat('script.js')) 
         .pipe(gulp.dest('dist')) 
         .pipe(rename('script-min.js')) 
@@ -32,7 +31,7 @@ gulp.task('watch', function(){
     browserSync.init({
         server: './'
     }, function(){
-        //necessary becourse of two params needed -> else error!
+        //necessary because of two params needed -> else error!
     });
 
     gulp.watch('src/*.ts', gulp.series(['default']));
@@ -52,13 +51,6 @@ gulp.task('transpile', function(){
     .pipe(gulp.dest('built/local'));
 })
 
-gulp.task('default', gulp.series(['transpile', 'tslint', 'scripts', 'babel', 'watch'], function() { 
+gulp.task('default', gulp.series(['tslint', 'transpile', 'scripts', 'babel', 'watch'], function() { 
     console.log("Gulp default is running!");
 }));
-
-// { 
-//     target: "es6",  //transpile into es5 to see the magic of babel
-//     module: "es6", //necessary with import/export of classes
-//     noImplicitAny: true,
-//     out: 'output.js' 
-// }

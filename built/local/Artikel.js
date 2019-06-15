@@ -1,5 +1,5 @@
-var Artikel = (function () {
-    function Artikel(artikelName, artikelBeschreibung, artikelPreis, artikelSonderPreis) {
+export default class Artikel {
+    constructor(artikelName, artikelBeschreibung, artikelPreis, artikelSonderPreis) {
         this.isCheaperThan = function (artikel) {
             if (this.artikelPreis <= artikel._artikelPreis) {
                 return true;
@@ -20,52 +20,34 @@ var Artikel = (function () {
             this._artikelName = artikelName;
         }
     }
-    Object.defineProperty(Artikel.prototype, "artikelID", {
-        get: function () {
-            return this._artikelID;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(Artikel.prototype, "artikelName", {
-        get: function () {
-            return this._artikelName;
-        },
-        set: function (artikelName) {
-            if (artikelName != '') {
-                this._artikelName = artikelName;
-            }
-            else {
-                this._artikelName = String(this._artikelID);
-            }
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(Artikel.prototype, "artikelPreis", {
-        get: function () {
-            if (this._artikelSonderPreis != undefined)
-                return this._artikelSonderPreis;
-            return this._artikelPreis;
-        },
-        set: function (artikelPreis) {
-            if (artikelPreis >= 0)
-                this._artikelPreis = artikelPreis;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(Artikel.prototype, "artikelSonderPreis", {
-        get: function () {
+    get artikelID() {
+        return this._artikelID;
+    }
+    get artikelName() {
+        return this._artikelName;
+    }
+    set artikelName(artikelName) {
+        if (artikelName != '') {
+            this._artikelName = artikelName;
+        }
+        else {
+            this._artikelName = String(this._artikelID);
+        }
+    }
+    get artikelPreis() {
+        if (this._artikelSonderPreis != undefined)
             return this._artikelSonderPreis;
-        },
-        set: function (artikelSonderPreis) {
-            if (artikelSonderPreis >= 0 || artikelSonderPreis == undefined)
-                this._artikelSonderPreis = artikelSonderPreis;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    return Artikel;
-}());
-export default Artikel;
+        return this._artikelPreis;
+    }
+    set artikelPreis(artikelPreis) {
+        if (artikelPreis >= 0)
+            this._artikelPreis = artikelPreis;
+    }
+    get artikelSonderPreis() {
+        return this._artikelSonderPreis;
+    }
+    set artikelSonderPreis(artikelSonderPreis) {
+        if (artikelSonderPreis >= 0 || artikelSonderPreis == undefined)
+            this._artikelSonderPreis = artikelSonderPreis;
+    }
+}

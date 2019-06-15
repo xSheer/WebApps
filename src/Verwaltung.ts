@@ -1,4 +1,4 @@
-import Artikel from './Artikel';
+import Artikel from './Artikel.js';
 
 export default class Verwaltung{
     
@@ -8,7 +8,7 @@ export default class Verwaltung{
         this.artikels = []; 
     }
 
-    get listArticles(){
+    get listArticles():any{
         return this.artikels;
     };
 

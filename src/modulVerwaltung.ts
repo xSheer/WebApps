@@ -1,6 +1,6 @@
-import Artikel from './Artikel';
-import Schuhe from './Schuhe';
-import Verwaltung from './Verwaltung';
+import Artikel from './Artikel.js';
+import Schuhe from './Schuhe.js';
+import Verwaltung from './Verwaltung.js';
 
 let artikel1 = new Artikel('Jeans', 'Asos Jeans', 139, 0);
 console.log(artikel1);
@@ -17,7 +17,6 @@ console.log(artikel4);
 let verwaltung = new Verwaltung();
 verwaltung.addArtikelsToList(artikel1, artikel2, artikel3, artikel4);
 
-console.log(verwaltung.listArticles());
+console.log(verwaltung.listArticles);
 verwaltung.deleteArtikelsToList(artikel1);
-console.log(verwaltung.listArticles());
-console.log("TEST2dff");
+console.log(verwaltung.listArticles);

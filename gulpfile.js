@@ -51,6 +51,6 @@ gulp.task('transpile', function(){
     .pipe(gulp.dest('built/local'));
 })
 
-gulp.task('default', gulp.series(['tslint', 'transpile', 'scripts', 'babel', 'watch'], function() { 
+gulp.task('default', gulp.series(['tslint', 'transpile', 'scripts', 'watch'], function() { 
     console.log("Gulp default is running!");
 }));

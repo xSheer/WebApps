@@ -1,4 +1,4 @@
-import Artikel from './Artikel';
+import Artikel from './Artikel.js';
 export default class Schuhe extends Artikel {
     constructor(artikelName, artikelBeschreibung, artikelPreis, artikelSonderPreis, schuhGroesse, schuhMarke) {
         super(artikelName, artikelBeschreibung, artikelPreis, artikelSonderPreis);

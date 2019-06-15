@@ -22,7 +22,9 @@
     "gulp-eslint": "^5.0.0",
     "gulp-rename": "^1.4.0",
     "gulp-sass": "^4.0.2",
-    "gulp-uglify-es": "^1.0.4"
+    "gulp-tslint": "^8.1.4",
+    "gulp-uglify-es": "^1.0.4",
+    "tslint": "^5.17.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

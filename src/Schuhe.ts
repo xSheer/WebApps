@@ -8,7 +8,8 @@ export default class Schuhe extends Artikel{
     protected _artikelSonderPreis:number;
 
 
-    constructor(artikelName:string, artikelBeschreibung:string, artikelPreis:number, artikelSonderPreis:number, schuhGroesse:number, schuhMarke:string){
+    constructor(artikelName:string, artikelBeschreibung:string, artikelPreis:number, 
+                artikelSonderPreis:number, schuhGroesse:number, schuhMarke:string){
         super(artikelName, artikelBeschreibung, artikelPreis, artikelSonderPreis);
         this._schuhGroesse = schuhGroesse;
         this._schuhMarke = schuhMarke;

@@ -179,5 +179,5 @@ define("Artikel", ["require", "exports"], function (e, t) {
   var h = new r["default"]("Schuhe", "Adidas Schuhe", 79, 0, 39, "Adidas");
   console.log(h);
   var u = new s["default"]();
-  u.addArtikelsToList(l, a, n, h), console.log(u.listArticles()), u.deleteArtikelsToList(l), console.log(u.listArticles()), console.log("TEST2");
+  u.addArtikelsToList(l, a, n, h), console.log(u.listArticles()), u.deleteArtikelsToList(l), console.log(u.listArticles()), console.log("TEST2dff");
 });

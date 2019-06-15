@@ -46,16 +46,19 @@ gulp.task('tslint', function() {
 });
 
 gulp.task('transpile', function(){
-    return gulp.src('src/**/*.ts')
-    .pipe(ts({ 
-        target: "es6",  //transpile into es5 to see the magic of babel
-        module: "amd", //necessary with import/export of classes
-        noImplicitAny: true,
-        out: 'output.js' 
-    }))
+    var tsconfig = require("./tsconfig.json");
+    return gulp.src('src/*.ts')
+    .pipe(ts(tsconfig.compilerOptions))
     .pipe(gulp.dest('built/local'));
 })
 
 gulp.task('default', gulp.series(['transpile', 'tslint', 'scripts', 'babel', 'watch'], function() { 
     console.log("Gulp default is running!");
 }));
+
+// { 
+//     target: "es6",  //transpile into es5 to see the magic of babel
+//     module: "es6", //necessary with import/export of classes
+//     noImplicitAny: true,
+//     out: 'output.js' 
+// }

@@ -1,4 +1,9 @@
-export default class Artikel{
+interface Compareable{
+    //Public methods
+    isCheaperThan(artikel:Artikel):boolean;
+}
+
+export default class Artikel implements Compareable{
 
     private artikelBeschreibung:string;
     private _artikelID:number;
@@ -58,7 +63,7 @@ export default class Artikel{
     }
     
     //Public methods
-    protected isCheaperThan = function(artikel:Artikel):boolean{
+    isCheaperThan = function(artikel:Artikel):boolean{
         if(this.artikelPreis <= artikel._artikelPreis){
             return true;
         }

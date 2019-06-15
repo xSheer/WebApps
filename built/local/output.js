@@ -140,4 +140,5 @@ define("modulVerwaltung", ["require", "exports", "Artikel", "Schuhe", "Verwaltun
     console.log(verwaltung.listArticles());
     verwaltung.deleteArtikelsToList(artikel1);
     console.log(verwaltung.listArticles());
+    console.log("TEST2");
 });

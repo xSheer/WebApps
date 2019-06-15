@@ -1,116 +1,183 @@
 "use strict";
 
-function Artikel(e, t, i, r) {
-  var l = 9 * Math.random() + 1,
-      n = e;
-  this.artikelBeschreibung = t;
-  var s = i,
-      u = r;
-  this.implementsInterfaces = ["Compareable"], 0 == arguments.length ? this._artikelName = l : this._artikelName = e, Object.defineProperty(this, "artikelID", {
-    get: function get() {
-      return l;
-    }
-  }), Object.defineProperty(this, "artikelName", {
-    get: function get() {
-      return n;
-    },
-    set: function set(e) {
-      return n = "" != e ? e : l;
-    }
-  }), Object.defineProperty(this, "artikelPreis", {
-    get: function get() {
-      return null != u ? u : s;
-    },
-    set: function set(e) {
-      if (e >= 0) return s = e;
-    },
-    configurable: !0
-  }), Object.defineProperty(this, "artikelSonderPreis", {
-    get: function get() {
-      return u;
-    },
-    set: function set(e) {
-      if (e >= 0 || null == e) return u = e;
-    }
-  }), this.isCheaperThan = function (e) {
-    return this.artikelPreis <= e.artikelPreis;
-  }, this.getId = function () {
-    return this.artikelID;
-  };
-}
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
-function Schuhe(e, t, i, r, l, n) {
-  Artikel.call(this, e, t, i, r);
-  var s = l,
-      u = n,
-      o = i,
-      c = r;
-  Object.defineProperty(this, "schuhGroesse", {
-    get: function get() {
-      return s;
-    }
-  }), Object.defineProperty(this, "schuhMarke", {
-    get: function get() {
-      return u;
-    },
-    set: function set(e) {
-      return u = e;
-    }
-  }), Object.defineProperty(this, "artikelPreis", {
-    get: function get() {
-      return null != c ? c : o;
-    },
-    set: function set(e) {
-      if (e >= 5) return o = e;
-    }
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+define("Artikel", ["require", "exports"], function (e, t) {
+  "use strict";
+
+  Object.defineProperty(t, "__esModule", {
+    value: !0
   });
-}
 
-function Verwaltung() {
-  var e = [];
-  this.listArticles = function () {
-    return e;
-  }, this.addArtikelsToList = function (t) {
-    e.push(t);
-    var r = 0;
+  t["default"] =
+  /*#__PURE__*/
+  function () {
+    function _class(e, t, i, r) {
+      _classCallCheck(this, _class);
 
-    for (; r < (arguments.length <= 1 ? 0 : arguments.length - 1);) {
-      e.push(r + 1 < 1 || arguments.length <= r + 1 ? undefined : arguments[r + 1]), r++;
-    }
-  }, this.deleteArtikelsToList = function (t) {
-    var r = e.map(function (e) {
-      return e.artikelID;
-    }).indexOf(t.artikelID);
-    e.splice(r, 1);
-
-    for (var _len = arguments.length, i = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
-      i[_key - 1] = arguments[_key];
+      this.isCheaperThan = function (e) {
+        return this.artikelPreis <= e._artikelPreis;
+      }, this.getId = function () {
+        return this.artikelID;
+      }, this._artikelID = 9 * Math.random() + 1, this.artikelBeschreibung = t, this._artikelPreis = i, this._artikelSonderPreis = r, this._artikelName = e || String(this._artikelID);
     }
 
-    for (var l = 0; l < i.length; l++) {
-      -1 !== (r = e.map(function (e) {
-        return e.artikelID;
-      }).indexOf(i[l].artikelID)) && e.splice(r, 1);
+    _createClass(_class, [{
+      key: "artikelID",
+      get: function get() {
+        return this._artikelID;
+      }
+    }, {
+      key: "artikelName",
+      get: function get() {
+        return this._artikelName;
+      },
+      set: function set(e) {
+        this._artikelName = "" != e ? e : String(this._artikelID);
+      }
+    }, {
+      key: "artikelPreis",
+      get: function get() {
+        return null != this._artikelSonderPreis ? this._artikelSonderPreis : this._artikelPreis;
+      },
+      set: function set(e) {
+        e >= 0 && (this._artikelPreis = e);
+      }
+    }, {
+      key: "artikelSonderPreis",
+      get: function get() {
+        return this._artikelSonderPreis;
+      },
+      set: function set(e) {
+        (e >= 0 || null == e) && (this._artikelSonderPreis = e);
+      }
+    }]);
+
+    return _class;
+  }();
+}), define("Schuhe", ["require", "exports", "Artikel"], function (e, t, i) {
+  "use strict";
+
+  Object.defineProperty(t, "__esModule", {
+    value: !0
+  });
+
+  t["default"] =
+  /*#__PURE__*/
+  function (_i$default) {
+    _inherits(_class2, _i$default);
+
+    function _class2(e, t, i, r, s, l) {
+      var _this;
+
+      _classCallCheck(this, _class2);
+
+      _this = _possibleConstructorReturn(this, _getPrototypeOf(_class2).call(this, e, t, i, r)), _this._schuhGroesse = s, _this._schuhMarke = l, _this._artikelPreis = i, _this._artikelSonderPreis = r;
+      return _this;
     }
-  };
-}
 
-var ModulVerwaltung = {
-  Artikel: Artikel,
-  Schuhe: Schuhe,
-  Verwaltung: Verwaltung
-},
-    artikel1 = new Artikel("Jeans", "Asos Jeans", 139),
-    artikel2 = new Artikel("Pulli", "Asos Pulli", 49, 39);
-console.log(artikel1);
-var schuh1 = new Schuhe("Schuh", "New Nikes", 119, 79, 42, "Nike"),
-    schuh2 = new Schuhe("Schuh", "New Adidias", 79, void 0, 42, "Adidias");
-console.log(schuh1), console.log(schuh1.artikelID);
-var verwaltung = new Verwaltung();
-console.log(verwaltung.listArticles()), verwaltung.addArtikelsToList(schuh1), console.log(verwaltung.listArticles()), verwaltung.addArtikelsToList(schuh2, artikel1, artikel2), console.log(verwaltung.listArticles()), verwaltung.deleteArtikelsToList(schuh1), console.log(verwaltung.listArticles()), verwaltung.deleteArtikelsToList(artikel1, artikel2), console.log(verwaltung.listArticles());
-var test = 10;
-console.log(test);
+    _createClass(_class2, [{
+      key: "schuhGroesse",
+      get: function get() {
+        return this._schuhGroesse;
+      }
+    }, {
+      key: "schuhMarke",
+      get: function get() {
+        return this._schuhMarke;
+      },
+      set: function set(e) {
+        this._schuhMarke = e;
+      }
+    }, {
+      key: "artikelSonderPreis",
+      get: function get() {
+        return null != this._artikelSonderPreis ? this._artikelSonderPreis : this._artikelPreis;
+      },
+      set: function set(e) {
+        e >= 5 && (this._artikelPreis = e);
+      }
+    }]);
 
-var es2016 = function es2016() {
-  return "Hallo World";
-};
+    return _class2;
+  }(i["default"]);
+}), define("Verwaltung", ["require", "exports"], function (e, t) {
+  "use strict";
+
+  Object.defineProperty(t, "__esModule", {
+    value: !0
+  });
+
+  t["default"] =
+  /*#__PURE__*/
+  function () {
+    function _class3() {
+      _classCallCheck(this, _class3);
+
+      this.addArtikelsToList = function (e) {
+        this.artikels.push(e);
+        var i = 0;
+
+        for (; i < (arguments.length <= 1 ? 0 : arguments.length - 1);) {
+          this.artikels.push(i + 1 < 1 || arguments.length <= i + 1 ? undefined : arguments[i + 1]), i++;
+        }
+      }, this.deleteArtikelsToList = function (e) {
+        var i = this.artikels.map(function (e) {
+          return e.artikelID;
+        }).indexOf(e.artikelID);
+        this.artikels.splice(i, 1);
+
+        for (var _len = arguments.length, t = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+          t[_key - 1] = arguments[_key];
+        }
+
+        for (var r = 0; r < t.length; r++) {
+          -1 !== (i = this.artikels.map(function (e) {
+            return e.artikelID;
+          }).indexOf(t[r].artikelID)) && this.artikels.splice(i, 1);
+        }
+      }, this.artikels = [];
+    }
+
+    _createClass(_class3, [{
+      key: "listArticles",
+      get: function get() {
+        return this.artikels;
+      }
+    }]);
+
+    return _class3;
+  }();
+}), define("modulVerwaltung", ["require", "exports", "Artikel", "Schuhe", "Verwaltung"], function (e, t, i, r, s) {
+  "use strict";
+
+  Object.defineProperty(t, "__esModule", {
+    value: !0
+  });
+  var l = new i["default"]("Jeans", "Asos Jeans", 139, 0);
+  console.log(l);
+  var a = new i["default"]("Pulli", "Asos Pulli", 49, 39);
+  console.log(a);
+  var n = new r["default"]("Schuhe", "Nike Schuhe", 129, 0, 42, "Nike");
+  console.log(n);
+  var h = new r["default"]("Schuhe", "Adidas Schuhe", 79, 0, 39, "Adidas");
+  console.log(h);
+  var u = new s["default"]();
+  u.addArtikelsToList(l, a, n, h), console.log(u.listArticles()), u.deleteArtikelsToList(l), console.log(u.listArticles()), console.log("TEST2");
+});

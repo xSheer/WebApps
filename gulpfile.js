@@ -8,7 +8,8 @@ var ts = require('gulp-typescript');
 var tslint = require("gulp-tslint");
 
 gulp.task('scripts', function() { 
-    return gulp.src('src/*.js')
+    return gulp.src('built/local/*.js')
+        //concat might be not necessary anymore
         .pipe(concat('script.js')) 
         .pipe(gulp.dest('dist')) 
         .pipe(rename('script-min.js')) 
@@ -30,9 +31,11 @@ gulp.task('babel', function() {
 gulp.task('watch', function(){
     browserSync.init({
         server: './'
+    }, function(){
+        //necessary becourse of two params needed -> else error!
     });
 
-    gulp.watch('src/*.ts', gulp.series(['scripts', 'watch', 'lint']));
+    gulp.watch('src/*.ts', gulp.series(['default']));
     gulp.watch('*.html').on('change', browserSync.reload);
 });
 
@@ -53,6 +56,6 @@ gulp.task('transpile', function(){
     .pipe(gulp.dest('built/local'));
 })
 
-gulp.task('default', gulp.series(['transpile', 'tslint'], function() { 
+gulp.task('default', gulp.series(['transpile', 'tslint', 'scripts', 'babel', 'watch'], function() { 
     console.log("Gulp default is running!");
 }));

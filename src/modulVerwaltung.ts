@@ -20,3 +20,4 @@ verwaltung.addArtikelsToList(artikel1, artikel2, artikel3, artikel4);
 console.log(verwaltung.listArticles());
 verwaltung.deleteArtikelsToList(artikel1);
 console.log(verwaltung.listArticles());
+console.log("TEST2");

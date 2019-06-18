@@ -3,6 +3,7 @@ var browserSync = require('browser-sync').create();
 var uglify = require('gulp-uglify-es').default;
 var ts = require('gulp-typescript');
 var tslint = require("gulp-tslint");
+var babel = require('gulp-babel');
 
 gulp.task('scripts', function() { 
     return gulp.src('built/local/*.js')
@@ -11,15 +12,15 @@ gulp.task('scripts', function() {
         .pipe(browserSync.stream());
 });
 
-// gulp.task('babel', function() {
-//     return gulp.src(
-//       [
-//       'node_modules/babel-polyfill/dist/polyfill.js',
-//       'dist/script-min.js'
-//       ])
-//       .pipe(babel())
-//       .pipe(gulp.dest('compiled'))
-// });
+gulp.task('babel', function() {
+    return gulp.src(
+      [
+      'node_modules/babel-polyfill/dist/polyfill.js',
+      'built/local/main.js'
+      ])
+      .pipe(babel())
+      .pipe(gulp.dest('compiled'))
+});
 
 gulp.task('watch', function(){
     browserSync.init({

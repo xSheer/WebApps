@@ -1,31 +1,25 @@
 var gulp = require('gulp');
 var browserSync = require('browser-sync').create();
-var concat = require('gulp-concat'); 
 var uglify = require('gulp-uglify-es').default;
-var rename = require('gulp-rename'); 
-var babel = require('gulp-babel');
 var ts = require('gulp-typescript');
 var tslint = require("gulp-tslint");
 
 gulp.task('scripts', function() { 
     return gulp.src('built/local/*.js')
-        .pipe(concat('script.js')) 
-        .pipe(gulp.dest('dist')) 
-        .pipe(rename('script-min.js')) 
         .pipe(uglify()) 
         .pipe(gulp.dest('dist'))
         .pipe(browserSync.stream());
 });
 
-gulp.task('babel', function() {
-    return gulp.src(
-      [
-      'node_modules/babel-polyfill/dist/polyfill.js',
-      'dist/script-min.js'
-      ])
-      .pipe(babel())
-      .pipe(gulp.dest('compiled'))
-});
+// gulp.task('babel', function() {
+//     return gulp.src(
+//       [
+//       'node_modules/babel-polyfill/dist/polyfill.js',
+//       'dist/script-min.js'
+//       ])
+//       .pipe(babel())
+//       .pipe(gulp.dest('compiled'))
+// });
 
 gulp.task('watch', function(){
     browserSync.init({

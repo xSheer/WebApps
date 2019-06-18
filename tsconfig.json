@@ -1,12 +1,9 @@
 {
     "compilerOptions": {
-        "module": "esnext",
-        "target": "es6",
         "noImplicitAny": true,
-        "removeComments": true,
-        "preserveConstEnums": true,
-        "outDir": "built/local",
-        "sourceMap": true
+        "outFile": "main.js",
+        "module": "amd",
+        "target": "es5"
     },
     "filesGlob": [
         "./**/*.ts",
